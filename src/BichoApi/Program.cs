@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using FluentValidation;
+using FluentValidation;              // <= precisa
+using FluentValidation.AspNetCore;   // <= precisa
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +30,15 @@ builder.Services.AddHealthChecks().AddNpgSql(cs);
 // FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateBetRequestValidator>();
+
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(o =>
+    {
+        // Força enums como string (ex.: "CENTENA_3X", "_1_5", "RIGHT")
+        o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        o.JsonSerializerOptions.PropertyNameCaseInsensitive = true; // tolera camelCase/PascalCase
+    });
 
 var app = builder.Build();
 

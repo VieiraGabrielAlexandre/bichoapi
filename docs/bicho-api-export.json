@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "d42495cb-d23a-4077-bda1-4568bdb6e043",
+		"name": "Bicho API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9066290"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Joao\", \"email\":\"joao@ex.com\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/users \\\n  -H \"Content-Type: application/json\" \\\n  -d '{ \"name\":\"Joao\", \"email\":\"joao@ex.com\" }'\n# => { \"id\": 1 }"
+			},
+			"response": []
+		},
+		{
+			"name": "Recarregar carteira",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "20000",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/wallets/1/recharge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"wallets",
+						"1",
+						"recharge"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/wallets/1/recharge \\\n  -H \"Content-Type: application/json\" \\\n  -d '20000'   # R$ 200,00 em centavos\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Aposta - Centena",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"modality\": \"CENTENA_3X\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 500,\n    \"payload\": { \"hundred\": \"517\" }\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"bets"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/bets \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"userId\": 1,\n    \"modality\": \"CENTENA_3X\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 500,\n    \"payload\": { \"hundred\": \"517\" }\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar sorteio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"market\": \"PTM\",\n    \"drawDate\": \"2025-08-26\",\n    \"drawTime\": \"10:00:00\",\n    \"prizes\": [\"7517\",\"1234\",\"9876\",\"0017\",\"4551\",\"8888\"]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/draws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"draws"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/draws \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"market\": \"PTM\",\n    \"drawDate\": \"2025-08-26\",\n    \"drawTime\": \"10:00:00\",\n    \"prizes\": [\"7517\",\"1234\",\"9876\",\"0017\",\"4551\",\"8888\"]\n  }'\n# => { \"id\": <drawId> }\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Aposta - Milhar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"modality\": \"MILHAR_INV\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 500,\n    \"payload\": { \"number\": \"7517\" }\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"bets"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/bets \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"userId\": 1,\n    \"modality\": \"MILHAR_INV\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 500,\n    \"payload\": { \"number\": \"7517\" }\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Aposta - Grupo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"modality\": \"GRUPO\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 300,\n    \"payload\": { \"groups\": [25] }\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"bets"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/bets \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"userId\": 1,\n    \"modality\": \"GRUPO\",\n    \"positions\": [\"RIGHT\"],\n    \"prizeWindow\": \"_1_5\",\n    \"stakeCents\": 300,\n    \"payload\": { \"groups\": [25] }\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Avaliar Apostas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/draws/<drawId>/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"draws",
+						"<drawId>",
+						"evaluate"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/api/draws/<drawId>/evaluate\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Payout - Ratio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/reports/payout-ratio?from=2025-08-26T00:00:00Z&to=2025-08-27T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"reports",
+						"payout-ratio"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2025-08-26T00:00:00Z"
+						},
+						{
+							"key": "to",
+							"value": "2025-08-27T00:00:00Z"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl \"http://localhost:5000/api/reports/payout-ratio?from=2025-08-26T00:00:00Z&to=2025-08-27T00:00:00Z\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Total de apostas - Periodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/reports/total-stake?from=2025-08-26T00:00:00Z&to=2025-08-27T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"reports",
+						"total-stake"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2025-08-26T00:00:00Z"
+						},
+						{
+							"key": "to",
+							"value": "2025-08-27T00:00:00Z"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl \"http://localhost:5000/api/reports/total-stake?from=2025-08-26T00:00:00Z&to=2025-08-27T00:00:00Z\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Carteira - Saldo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/wallets/1/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"wallets",
+						"1",
+						"balance"
+					]
+				},
+				"description": "Generated from cURL: curl http://localhost:5000/api/wallets/1/balance\n"
+			},
+			"response": []
+		}
+	]
+}

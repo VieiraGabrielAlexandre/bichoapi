@@ -1,0 +1,8 @@
+project    = "bicho"
+env        = "prod"
+aws_region = "us-east-1"
+
+app_s3_bucket = "meu-bucket-deploy"
+app_s3_key    = "releases/bichoapp.tar.gz"
+
+# allowed_ssh_cidr = "SEU.IP.PUBLICO.AQUI/32"

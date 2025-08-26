@@ -1,0 +1,38 @@
+
+---
+
+### `.gitignore`
+```gitignore
+# Dotnet
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs & dumps
+logs/
+*.log
+*.dmp
+
+# Env
+.env
+.env.*
+
+# Terraform
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# OS
+.DS_Store
+Thumbs.db
